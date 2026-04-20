@@ -1,0 +1,157 @@
+import 'package:flutter/material.dart';
+import 'package:quran_indon/itemnamasurat.dart';
+import 'package:quran_indon/l10n/app_localizations.dart';
+import 'package:quran_indon/warnanyong.dart';
+
+class QuranTab extends StatefulWidget {
+  const QuranTab({super.key});
+
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
+  List<String> names = [
+    "الفاتحة",
+    "البقرة",
+    "اٰل عمران",
+    "النساۤء",
+    "الماۤئدة",
+    "الانعام",
+    "الاعراف",
+    "الانفال",
+    "التوبة",
+    "يونس",
+    "هود",
+    "يوسف",
+    "الرّعد",
+    "ابرٰهيم",
+    "الحجر",
+    "النحل",
+    "الاسراۤء",
+    "الكهف",
+    "مريم",
+    "طٰهٰ",
+    "الانبياۤء",
+    "الحج",
+    "المؤمنون",
+    "النّور",
+    "الفرقان",
+    "الشعراۤء",
+    "النمل",
+    "القصص",
+    "العنكبوت",
+    "الرّوم",
+    "لقمٰن",
+    "السّجدة",
+    "الاحزاب",
+    "سبأ",
+    "فاطر",
+    "يٰسۤ",
+    "الصّٰۤفّٰت",
+    "ص",
+    "الزمر",
+    "غافر",
+    "فصّلت",
+    "الشورى",
+    "الزخرف",
+    "الدخان",
+    "الجاثية",
+    "الاحقاف",
+    "محمّد",
+    "الفتح",
+    "الحجرٰت",
+    "ق",
+    "الذّٰريٰت",
+    "الطور",
+    "النجم",
+    "القمر",
+    "الرحمن",
+    "الواقعة",
+    "الحديد",
+    "المجادلة",
+    "الحشر",
+    "الممتحنة",
+    "الصّفّ",
+    "الجمعة",
+    "المنٰفقون",
+    "التغابن",
+    "الطلاق",
+    "التحريم",
+    "الملك",
+    "القلم",
+    "الحاۤقّة",
+    "المعارج",
+    "نوح",
+    "الجن",
+    "المزّمّل",
+    "المدّثّر",
+    "القيٰمة",
+    "الانسان",
+    "المرسلٰت",
+    "النبأ",
+    "النّٰزعٰت",
+    "عبس",
+    "التكوير",
+    "الانفطار",
+    "المطفّفين",
+    "الانشقاق",
+    "البروج",
+    "الطارق",
+    "الاعلى",
+    "الغاشية",
+    "الفجر",
+    "البلد",
+    "الشمس",
+    "الّيل",
+    "الضحى",
+    "الشرح",
+    "التين",
+    "العلق",
+    "القدر",
+    "البيّنة",
+    "الزلزلة",
+    "العٰديٰت",
+    "القارعة",
+    "التكاثر",
+    "العصر",
+    "الهمزة",
+    "الفيل",
+    "قريش",
+    "الماعون",
+    "الكوثر",
+    "الكٰفرون",
+    "النصر",
+    "اللهب",
+    "الاخلاص",
+    "الفلق",
+    "الناس",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(child: Image.asset('assets/images/quranlogo.png')),
+        Divider(color: WarnaNyong.warnadasarterang, thickness: 3),
+        Text(
+          AppLocalizations.of(context)!.nama_surat,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        Divider(color: WarnaNyong.warnadasarterang, thickness: 3),
+        Expanded(
+          flex: 2,
+          child: ListView.separated(
+            separatorBuilder: (context, index) {
+              return Divider(color: WarnaNyong.warnadasarterang, thickness: 1);
+            },
+            itemBuilder: (context, index) {
+              return ItemNamaSurat(name: names[index], index: index);
+            },
+            itemCount: names.length,
+          ),
+        ),
+      ],
+    );
+  }
+}
